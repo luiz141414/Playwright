@@ -1,13 +1,14 @@
 //comands
 import locators from '../TestSuporte/locators.js'
 import dadosFixtures from '../TestSuporte/testFixtures.json'
+import { Faker, faker } from '@faker-js/faker';
 
 export const PrencherCadastro = async (page) => {
-
+    const fakerEmail = faker.internet.email();
     await locators.paginaHome.btnSignupLogin(page).click()
     // Expect a title "to contain" a substring.
     await locators.paginaSignup.fildName(page).fill(dadosFixtures.paginaSignup.name)
-    await locators.paginaSignup.fildEmail(page).fill(dadosFixtures.paginaSignup.email)
+    await locators.paginaSignup.fildEmail(page).fill(fakerEmail)
     await locators.paginaSignup.btnSignup(page).click();
 
     await page.getByText('Mr.').check();
