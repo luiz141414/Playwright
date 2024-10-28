@@ -10,7 +10,7 @@ export const PrencherCadastro = async (page) => {
     await locators.paginaSignup.fildName(page).fill(dadosFixtures.paginaSignup.name)
     await locators.paginaSignup.fildEmail(page).fill(fakerEmail)
     await locators.paginaSignup.btnSignup(page).click();
-
+ //////////////////////// Atualizando ainda para o P.O //////////////////////////
     await page.getByText('Mr.').check();
     await page.getByLabel('Password *').fill('123456789')
     await page.locator('#days').selectOption('14')
